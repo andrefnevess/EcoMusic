@@ -1,0 +1,120 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
+
+:root {
+  --verde-escuro: #014626;
+  --verde-claro: #00aa55;
+  --verde-gradiente: linear-gradient(135deg, #014626, #00aa55);
+  --texto-claro: #f0fdf4;
+  --texto-secundario: #a7f3d0;
+  --cor-destaque: #55DE16;
+  --cor-fundo-escuro: #014626;
+  --cor-texto-escuro: #ffffff;
+  --velocidade-fade: 0.5s;
+}
+
+body {
+  margin: 0;
+  font-family: 'Poppins', sans-serif;
+  background: url('https://png.pngtree.com/thumb_back/fh260/background/20230527/pngtree-abstract-green-leaves-background-image_2702185.jpg') no-repeat center center fixed,
+              var(--cor-fundo-escuro);
+  background-size: cover;
+  color: var(--texto-claro);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  overflow: hidden;
+}
+
+.container {
+  text-align: center;
+  width: 90%;
+  max-width: 600px;
+  overflow: hidden;
+  position: relative;
+  z-index: 2;
+  background: rgba(1, 70, 38, 0.85);
+  padding: 20px;
+  border-radius: 20px;
+}
+
+h1 {
+  font-weight: 600;
+  margin-bottom: 20px;
+  font-size: 2rem;
+  background: var(--texto-claro);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Botão estilizado */
+.play-btn {
+  background: var(--verde-gradiente);
+  border: none;
+  padding: 15px 30px;
+  font-size: 1.2rem;
+  color: white;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  margin-bottom: 20px;
+}
+
+.play-btn:hover {
+  transform: scale(1.1);
+  box-shadow: 0 0 15px var(--cor-destaque);
+}
+
+audio {
+  display: none; /* esconde o player padrão */
+}
+
+/* Letras */
+.lyrics {
+  font-size: 1.2rem;
+  line-height: 2;
+  max-height: 400px;
+  overflow: hidden;
+  position: relative;
+  scroll-behavior: smooth;
+}
+
+.lyrics span {
+  display: block;
+  opacity: 0.3;
+  transition: all var(--velocidade-fade) ease, transform 0.3s ease;
+  margin: 10px 0;
+}
+
+.lyrics span.active {
+  color: var(--cor-destaque);
+  font-size: 1.5rem;
+  opacity: 1;
+  transform: scale(1.1);
+  text-shadow: 0 0 10px var(--cor-destaque), 0 0 20px var(--cor-destaque);
+}
+
+/* Folhas decorativas */
+.folha {
+  position: absolute;
+  width: 120px;
+  opacity: 0.25;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.folha1 { top: 20px; left: 20px; }
+.folha2 { bottom: 30px; right: 40px; }
+.folha3 { top: 50%; left: -40px; }
+
+@media screen and (max-width: 500px) {
+  h1 {
+    font-size: 1.5rem;
+  }
+  .lyrics {
+    font-size: 1rem;
+  }
+  .lyrics span.active {
+    font-size: 1.3rem;
+  }
+}
